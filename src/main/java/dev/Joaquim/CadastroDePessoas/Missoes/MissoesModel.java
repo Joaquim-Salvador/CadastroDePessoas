@@ -9,9 +9,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_missoes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class MissoesModel {
     
     @Id
@@ -25,29 +32,6 @@ public class MissoesModel {
     //Uma missao para muitas pessoas
     @OneToMany(mappedBy = "missoes")
     private List<PessoaModel> pessoas;
-
-    public MissoesModel(String nomeMissao, String dificuldade) {
-        this.nomeMissao = nomeMissao;
-        this.dificuldade = dificuldade;
-    }
-
-    public String getNomeMissao() {
-        return nomeMissao;
-    }
-
-    public void setNomeMissao(String nomeMissao) {
-        this.nomeMissao = nomeMissao;
-    }
-
-    public String getDificuldade() {
-        return dificuldade;
-    }
-
-    public void setDificuldade(String dificuldade) {
-        this.dificuldade = dificuldade;
-    }
-
-
 
 
 }
